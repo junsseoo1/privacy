@@ -1,508 +1,390 @@
 <!DOCTYPE html>
 <html lang="ko">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>개인정보처리방침</title>
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Noto Sans KR', 'Segoe UI', sans-serif;
-      line-height: 1.75;
-      color: #1a1a2e;
-      background: linear-gradient(135deg, #f8fafc 0%, #e8f0fe 100%);
-      min-height: 100vh;
-      }
-      .container {
-      max-width: 720px;
-      margin: 0 auto;
-      padding: 40px 24px 80px;
-      }
-      header {
-      text-align: center;
-      margin-bottom: 48px;
-      padding: 32px 0;
-      }
-      header .logo {
-      display: inline-flex;
-      align-items: center;
-      gap: 10px;
-      margin-bottom: 16px;
-      }
-      header .logo-icon {
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, #3B82F6, #1D4ED8);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-weight: 800;
-      font-size: 16px;
-      }
-      header .logo-text {
-      font-size: 24px;
-      font-weight: 800;
-      color: #1a1a2e;
-      }
-      h1 {
-      font-size: 28px;
-      font-weight: 800;
-      color: #1a1a2e;
-      margin-bottom: 8px;
-      letter-spacing: -0.5px;
-      }
-      header p {
-      color: #64748b;
-      font-size: 14px;
-      }
-      .section {
-      background: white;
-      border-radius: 16px;
-      padding: 28px;
-      margin-bottom: 16px;
-      box-shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.03);
-      border: 1px solid rgba(0,0,0,0.04);
-      }
-      h2 {
-      font-size: 17px;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      }
-      h2 .badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 28px;
-      height: 28px;
-      background: linear-gradient(135deg, #3B82F6, #1D4ED8);
-      color: white;
-      border-radius: 8px;
-      font-size: 13px;
-      font-weight: 700;
-      flex-shrink: 0;
-      }
-      h3 {
-      font-size: 15px;
-      font-weight: 700;
-      color: #334155;
-      margin: 20px 0 10px;
-      }
-      p {
-      font-size: 14.5px;
-      color: #374151;
-      margin-bottom: 12px;
-      }
-      ul {
-      list-style: none;
-      padding: 0;
-      margin: 12px 0;
-      }
-      ul li {
-      position: relative;
-      padding: 8px 0 8px 20px;
-      font-size: 14px;
-      color: #4b5563;
-      line-height: 1.6;
-      }
-      ul li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 15px;
-      width: 6px;
-      height: 6px;
-      background: #3B82F6;
-      border-radius: 50%;
-      }
-      .highlight-box {
-      background: #fef2f2;
-      border-left: 3px solid #ef4444;
-      border-radius: 0 10px 10px 0;
-      padding: 14px 18px;
-      margin: 16px 0;
-      }
-      .highlight-box p {
-      color: #991b1b;
-      font-size: 13.5px;
-      font-weight: 600;
-      margin: 0;
-      }
-      .info-box {
-      background: #eff6ff;
-      border-left: 3px solid #3B82F6;
-      border-radius: 0 10px 10px 0;
-      padding: 14px 18px;
-      margin: 16px 0;
-      }
-      .info-box p {
-      color: #1e40af;
-      font-size: 13.5px;
-      font-weight: 500;
-      margin: 0;
-      }
-      .data-table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      margin: 16px 0;
-      border-radius: 10px;
-      overflow: hidden;
-      border: 1px solid #e5e7eb;
-      }
-      .data-table th {
-      background: #f8fafc;
-      padding: 10px 14px;
-      font-size: 12px;
-      font-weight: 700;
-      color: #64748b;
-      text-align: left;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      }
-      .data-table td {
-      padding: 10px 14px;
-      font-size: 13.5px;
-      color: #374151;
-      border-top: 1px solid #f1f5f9;
-      }
-      .data-table tr:hover td {
-      background: #f8fafc;
-      }
-      .tag {
-      display: inline-block;
-      padding: 2px 8px;
-      border-radius: 6px;
-      font-size: 11px;
-      font-weight: 600;
-      }
-      .tag-local {
-      background: #ecfdf5;
-      color: #065f46;
-      }
-      .tag-firebase {
-      background: #fef3c7;
-      color: #92400e;
-      }
-      .tag-transit {
-      background: #ede9fe;
-      color: #5b21b6;
-      }
-      .contact-card {
-      background: #f8fafc;
-      border-radius: 12px;
-      padding: 20px;
-      margin: 16px 0;
-      }
-      .contact-card .label {
-      font-size: 12px;
-      color: #94a3b8;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 12px;
-      }
-      .contact-card .row {
-      display: flex;
-      justify-content: space-between;
-      padding: 6px 0;
-      font-size: 14px;
-      }
-      .contact-card .row .key {
-      color: #64748b;
-      }
-      .contact-card .row .value {
-      color: #1a1a2e;
-      font-weight: 600;
-      }
-      .divider {
-      height: 1px;
-      background: #f1f5f9;
-      margin: 20px 0;
-      }
-      footer {
-      text-align: center;
-      padding: 32px 0;
-      color: #94a3b8;
-      font-size: 13px;
-      }
-      @media (max-width: 480px) {
-      .container { padding: 24px 16px 60px; }
-      .section { padding: 20px; }
-      h1 { font-size: 24px; }
-      .contact-card .row { flex-direction: column; gap: 2px; }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="container">
-      <header>
-        <h1>개인정보처리방침</h1>
-        <p>시행일: 2026년 4월 14일</p>
-      </header>
-      <!-- 제1조 -->
-      <div class="section">
-        <h2>
-          <span class="badge">1</span>개인정보의 처리 목적</h2>
-          <p>
-            <strong>Plato 달력</strong> 및 <strong>PNUcal</strong> 서비스(이하 "서비스")는 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.</p>
-            <p>처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.</p>
-            <h3>Plato 달력 (Google 연동 기능 사용 시)</h3>
-            <ul>
-              <li>Google Calendar API를 통한 일정 데이터 접근 및 동기화</li>
-              <li>일정 정보의 추가, 수정, 삭제 기능 제공</li>
-            </ul>
-            <h3>PNUcal (학교 과제 및 일정 관리)</h3>
-            <ul>
-              <li>학교 시스템(PLATO)에 로그인하여 과제 및 일정 정보를 조회</li>
-              <li>과제 마감 알림 예약 (로컬 알림)</li>
-              <li>푸시 알림 수신을 위한 Firebase Cloud Messaging(FCM) 기기 토큰 등록</li>
-              <li>앱 공지사항 전달 및 사용자 피드백 기능 제공을 위한 Firebase Firestore 사용</li>
-              <li>앱 사용성 개선을 위한 Firebase Analytics 기본 화면 조회 통계 수집 (개인 식별 불가)</li>
-              <li>iOS 단축어(Shortcuts) 자동화를 통한 백그라운드 과제 확인 및 알림 예약</li>
-            </ul>
-            <div class="highlight-box">
-              <p>PNUcal 앱은 사용자의 PLATO 아이디 및 비밀번호를 개발자의 별도 서버로 전송하지 않습니다. 로그인 정보는 사용자의 기기 내부 저장소에만 저장되며, PLATO 서버와의 직접 통신에만 사용됩니다.</p>
-            </div>
-          </div>
-          <!-- 제2조 -->
-          <div class="section">
-            <h2>
-              <span class="badge">2</span>개인정보의 처리 및 보유 기간</h2>
-              <p>
-                <strong>Plato 달력:</strong> Google Calendar 데이터는 사용자가 Google 연동 기능을 종료하거나 앱을 삭제할 때까지 보유 및 이용됩니다.</p>
-                <p>
-                  <strong>PNUcal (기기 내 저장 데이터):</strong> 사용자의 기기에 저장된 모든 정보(로그인 정보, 과제 데이터, 알림 설정 등)는 <strong>앱 삭제 시 즉시 파기</strong>됩니다.</p>
-                  <p>
-                    <strong>PNUcal (Firebase 저장 데이터):</strong> 푸시 알림 및 앱 기능 제공을 위해 Firebase Firestore에 저장된 정보(학번, 이름, 기기 토큰, 최근 접속 시각)는 사용자가 앱을 삭제하거나 서비스 이용을 중단할 경우, 요청에 따라 삭제됩니다.</p>
-                  </div>
-                  <!-- 제3조 -->
-                  <div class="section">
-                    <h2>
-                      <span class="badge">3</span>정보주체의 권리·의무 및 행사방법</h2>
-                      <ul>
-                        <li>정보주체는 언제든지 개인정보 열람·정정·삭제·처리정지 요구를 할 수 있습니다.</li>
-                        <li>PNUcal 앱 내 '로그아웃' 또는 '데이터 초기화' 기능을 통해 기기에 저장된 모든 개인정보를 즉시 삭제할 수 있습니다.</li>
-                        <li>Firebase에 저장된 데이터의 삭제를 원하는 경우, 개인정보 보호책임자에게 연락하여 요청할 수 있습니다.</li>
-                        <li>앱을 삭제하는 즉시 사용자의 기기에서 모든 로컬 개인정보가 파기됩니다.</li>
-                      </ul>
-                    </div>
-                    <!-- 제4조 -->
-                    <div class="section">
-                      <h2>
-                        <span class="badge">4</span>처리하는 개인정보의 항목</h2>
-                        <h3>Plato 달력</h3>
-                        <ul>
-                          <li>필수항목: Google Calendar Data (일정 제목, 시간, 내용 등)</li>
-                        </ul>
-                        <h3>PNUcal</h3>
-                        <table class="data-table">
-                          <thead>
-                            <tr>
-                              <th>항목</th>
-                              <th>저장 위치</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>PLATO 아이디(학번), 비밀번호</td>
-                              <td>
-                                <span class="tag tag-local">기기 내부</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>사용자 이름</td>
-                              <td>
-                                <span class="tag tag-local">기기 내부</span>
-                                <span class="tag tag-firebase">Firebase</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>학번 (마스킹 처리 값 포함)</td>
-                              <td>
-                                <span class="tag tag-local">기기 내부</span>
-                                <span class="tag tag-firebase">Firebase</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>수강 과목 및 과제 정보</td>
-                              <td>
-                                <span class="tag tag-local">기기 내부</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>알림 설정, 테마, 숨긴 과제 목록</td>
-                              <td>
-                                <span class="tag tag-local">기기 내부</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>FCM 기기 토큰 (푸시 알림용)</td>
-                              <td>
-                                <span class="tag tag-local">기기 내부</span>
-                                <span class="tag tag-firebase">Firebase</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>최근 접속 시각, 최초 등록 시각</td>
-                              <td>
-                                <span class="tag tag-firebase">Firebase</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>사용자 피드백 내용 및 개발자 답변</td>
-                              <td>
-                                <span class="tag tag-firebase">Firebase</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>화면 조회 통계 (비식별)</td>
-                              <td>
-                                <span class="tag tag-firebase">Firebase</span>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>PLATO 세션 쿠키</td>
-                              <td>
-                                <span class="tag tag-transit">통신 시에만</span>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <div class="info-box">
-                          <p>PLATO 아이디 및 비밀번호는 기기 내부에만 저장되며, Firebase 또는 개발자 서버로 전송되지 않습니다. 학교 서버(PLATO)와의 직접 통신에만 사용됩니다.</p>
-                        </div>
-                      </div>
-                      <!-- 제5조 -->
-                      <div class="section">
-                        <h2>
-                          <span class="badge">5</span>개인정보의 제3자 제공</h2>
-                          <p>서비스는 원칙적으로 정보주체의 개인정보를 제3자에게 제공하지 않습니다. 다만, 다음의 경우에는 예외로 합니다.</p>
-                          <ul>
-                            <li>푸시 알림 발송을 위해 Firebase Cloud Messaging(Google LLC) 서비스를 이용하며, 이를 위해 기기 토큰이 Google 서버에 저장됩니다.</li>
-                            <li>앱 기능 제공을 위해 Firebase Firestore(Google LLC) 서비스를 이용하며, 제4조에 명시된 항목이 저장됩니다.</li>
-                            <li>앱 사용성 개선을 위해 Firebase Analytics(Google LLC)를 통한 비식별 화면 조회 통계가 수집됩니다.</li>
-                            <li>법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우</li>
-                          </ul>
-                        </div>
-                        <!-- 제6조 -->
-                        <div class="section">
-                          <h2>
-                            <span class="badge">6</span>개인정보의 파기</h2>
-                            <p>서비스는 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체 없이 해당 개인정보를 파기합니다.</p>
-                            <div class="divider">
-                            </div>
-                            <p>
-                              <strong>기기 내 데이터:</strong> 사용자가 앱을 삭제하거나 로그아웃 시 스마트폰 운영체제의 정책에 따라 앱 데이터가 즉시 삭제됩니다.</p>
-                              <p>
-                                <strong>Firebase 데이터:</strong> 사용자의 삭제 요청 시 Firestore에 저장된 사용자 문서를 삭제합니다. 별도 요청이 없는 경우 서비스 종료 시 일괄 파기합니다.</p>
-                              </div>
-                              <!-- 제7조 -->
-                              <div class="section">
-                                <h2>
-                                  <span class="badge">7</span>개인정보의 안전성 확보 조치</h2>
-                                  <ul>
-                                    <li>
-                                      <strong>내부 관리계획의 수립 및 시행:</strong> 개인정보의 안전한 처리를 위하여 내부관리계획을 수립하고 시행하고 있습니다.</li>
-                                      <li>
-                                        <strong>기기 내 저장 보안:</strong> 사용자의 로그인 정보는 iOS/Android 앱 샌드박스 내 저장되어 다른 앱에서 접근할 수 없습니다.</li>
-                                        <li>
-                                          <strong>통신 암호화:</strong> PLATO 서버 및 Firebase와의 모든 통신은 HTTPS(TLS) 암호화를 통해 이루어집니다.</li>
-                                          <li>
-                                            <strong>개인정보 마스킹:</strong> Firebase에 저장되는 이름과 학번은 마스킹 처리된 값을 함께 저장하여 관리 화면에서의 노출을 최소화합니다.</li>
-                                            <li>
-                                              <strong>접근 권한 관리:</strong> Firebase Firestore 보안 규칙을 통해 비인가 접근을 차단하고 있습니다.</li>
-                                            </ul>
-                                          </div>
-                                          <!-- 제8조 -->
-                                          <div class="section">
-                                            <h2>
-                                              <span class="badge">8</span>쿠키 사용</h2>
-                                              <p>본 서비스는 웹사이트 쿠키(Cookie)를 사용하지 않습니다. 단, 학교 시스템(PLATO)과의 세션 유지를 위해 앱 내부 메모리에서 임시 세션 값을 활용하며, 이는 앱 종료 시 무효화됩니다.</p>
-                                            </div>
-                                            <!-- 제9조 -->
-                                            <div class="section">
-                                              <h2>
-                                                <span class="badge">9</span>개인정보 보호책임자</h2>
-                                                <p>서비스는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.</p>
-                                                <div class="contact-card">
-                                                  <div class="label">개인정보 보호책임자</div>
-                                                  <div class="row">
-                                                    <span class="key">성명</span>
-                                                    <span class="value">이준서</span>
-                                                  </div>
-                                    
-                                                  <div class="row">
-                                                    <span class="key">이메일</span>
-                                                    <span class="value">d*****@pusan.ac.kr</span>
-                                                  </div>
-                                                </div>
-                                              </div>
-                                              <!-- 제10조 -->
-                                              <div class="section">
-                                                <h2>
-                                                  <span class="badge">10</span>개인정보 열람청구</h2>
-                                                  <p>정보주체는 「개인정보 보호법」 제35조에 따른 개인정보의 열람 청구를 아래의 부서에 할 수 있습니다.</p>
-                                                  <div class="contact-card">
-                                                    <div class="label">개인정보 열람청구 접수·처리 담당</div>
-                                                    <div class="row">
-                                                      <span class="key">담당자</span>
-                                                      <span class="value">이준서</span>
-                                                    </div>
-                    
-                                                    <div class="row">
-                                                      <span class="key">이메일</span>
-                                                      <span class="value">d****@pusan.ac.kr</span>
-                                                    </div>
-                                                  </div>
-                                                </div>
-                                                <!-- 제11조 -->
-                                                <div class="section">
-                                                  <h2>
-                                                    <span class="badge">11</span>권익침해 구제방법</h2>
-                                                    <p>정보주체는 개인정보침해로 인한 구제를 받기 위하여 개인정보분쟁조정위원회, 한국인터넷진흥원 개인정보침해신고센터 등에 분쟁해결이나 상담 등을 신청할 수 있습니다.</p>
-                                                    <table class="data-table">
-                                                      <thead>
-                                                        <tr>
-                                                          <th>기관명</th>
-                                                          <th>연락처</th>
-                                                        </tr>
-                                                      </thead>
-                                                      <tbody>
-                                                        <tr>
-                                                          <td>개인정보분쟁조정위원회</td>
-                                                          <td>1833-6972 / www.kopico.go.kr</td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td>개인정보침해신고센터</td>
-                                                          <td>118 / privacy.kisa.or.kr</td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td>대검찰청</td>
-                                                          <td>1301 / www.spo.go.kr</td>
-                                                        </tr>
-                                                        <tr>
-                                                          <td>경찰청</td>
-                                                          <td>182 / cyberbureau.police.go.kr</td>
-                                                        </tr>
-                                                      </tbody>
-                                                    </table>
-                                                  </div>
-                                                  <!-- 제12조 -->
-                                                  <div class="section">
-                                                    <h2>
-                                                      <span class="badge">12</span>개인정보 처리방침 변경</h2>
-                                                      <p>이 개인정보처리방침은 <strong>2026년 4월 13일</strong>부터 적용됩니다.</p>
-                                                      <p>이전 개인정보처리방침은 2025년 4월 1일자로 적용되었습니다.</p>
-                                                    </div>
-                                                    <footer>
-                                                      &copy; 2025 PNUcal. All rights reserved.
-                                                    </footer>
-                                                  </div>
-                                                </body>
-                                              </html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>PNUcal 개인정보처리방침</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+    background: #ffffff;
+    color: #333d4b;
+    font-size: 15px;
+    line-height: 1.75;
+    letter-spacing: -0.01em;
+    word-break: keep-all;
+    overflow-wrap: break-word;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: #3182f6; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  strong { color: #191f28; font-weight: 600; }
+
+  .wrap { max-width: 720px; margin: 0 auto; padding: 56px 24px 96px; }
+
+  .app { display: flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 600; color: #6b7684; margin-bottom: 14px; }
+  .app-icon { width: 22px; height: 22px; border-radius: 6px; background: #3182f6; display: grid; place-items: center; }
+  .app-icon svg { width: 13px; height: 13px; }
+  h1 { font-size: 28px; font-weight: 700; color: #191f28; letter-spacing: -0.03em; line-height: 1.35; margin-bottom: 8px; }
+  .date { font-size: 14px; color: #8b95a1; }
+
+  .intro { margin: 32px 0 0; padding-top: 28px; border-top: 1px solid #e5e8eb; }
+  .intro p { margin-bottom: 12px; }
+
+  .notice {
+    background: #f2f4f6; border-radius: 12px; padding: 18px 20px; margin: 20px 0 0;
+  }
+  .notice-title { font-size: 15px; font-weight: 700; color: #191f28; margin-bottom: 6px; }
+  .notice p { font-size: 14px; color: #4e5968; margin: 0; }
+
+  .toc { margin: 36px 0 0; padding: 22px 0; border-top: 1px solid #e5e8eb; border-bottom: 1px solid #e5e8eb; }
+  .toc-title { font-size: 14px; font-weight: 700; color: #191f28; margin-bottom: 8px; }
+  .toc ol { list-style: none; columns: 2; column-gap: 24px; }
+  .toc li { break-inside: avoid; }
+  .toc a { display: block; font-size: 14px; color: #4e5968; padding: 3px 0; }
+  .toc a:hover { color: #3182f6; text-decoration: none; }
+
+  section { padding: 36px 0 0; scroll-margin-top: 16px; }
+  h2 { font-size: 18px; font-weight: 700; color: #191f28; letter-spacing: -0.02em; margin-bottom: 12px; }
+  h3 { font-size: 15px; font-weight: 700; color: #191f28; margin: 20px 0 6px; }
+  section p { margin-bottom: 10px; }
+
+  ol.items, ul.items { margin: 6px 0 10px; padding-left: 20px; }
+  ol.items li, ul.items li { margin: 4px 0; padding-left: 2px; }
+  ul.items li::marker { color: #b0b8c1; }
+  ol.items li::marker { color: #6b7684; font-weight: 600; }
+
+  .table-wrap { overflow-x: auto; margin: 12px 0; border-top: 2px solid #191f28; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; }
+  th { text-align: left; font-weight: 600; color: #191f28; background: #f9fafb; padding: 11px 12px; border-bottom: 1px solid #e5e8eb; }
+  td { padding: 11px 12px; border-bottom: 1px solid #e5e8eb; vertical-align: top; color: #4e5968; }
+  td.loc { white-space: nowrap; width: 1%; }
+  .sub { color: #8b95a1; font-size: 13px; }
+
+  .box { border: 1px solid #e5e8eb; border-radius: 12px; padding: 16px 18px; margin: 12px 0; font-size: 14px; color: #4e5968; }
+  .box strong { color: #191f28; }
+
+  dl.contact { display: grid; grid-template-columns: 90px 1fr; gap: 6px 12px; font-size: 14px; background: #f9fafb; border-radius: 12px; padding: 16px 18px; margin: 12px 0; }
+  dl.contact dt { color: #8b95a1; }
+  dl.contact dd { color: #191f28; font-weight: 500; }
+
+  /* 한눈에 보기 */
+  .glance-title { font-size: 14px; font-weight: 700; color: #191f28; margin: 36px 0 10px; }
+  .glance { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+  .g { border: 1px solid #e5e8eb; border-radius: 14px; padding: 16px; }
+  .g-ic { width: 32px; height: 32px; border-radius: 9px; display: grid; place-items: center; margin-bottom: 10px; }
+  .g-ic svg { width: 17px; height: 17px; }
+  .g b { display: block; font-size: 14.5px; font-weight: 700; color: #191f28; margin-bottom: 2px; }
+  .g span { font-size: 13px; color: #6b7684; line-height: 1.55; display: block; }
+  .ic-blue { background: #e8f3ff; color: #3182f6; }
+  .ic-green { background: #e5f8ef; color: #03b26c; }
+  .ic-gray { background: #f2f4f6; color: #4e5968; }
+
+  /* 강조 안내 */
+  .notice.blue { background: #f3f8ff; border: 1px solid #d6e7ff; }
+  .notice.blue .notice-title { display: flex; align-items: center; gap: 6px; color: #1b64da; }
+  .notice.blue .notice-title svg { width: 17px; height: 17px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .chip { font-size: 12.5px; font-weight: 600; color: #1b64da; background: #fff; border: 1px solid #d6e7ff; padding: 4px 10px; border-radius: 999px; }
+
+  /* 흐름도 */
+  .flow { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 8px; background: #f9fafb; border-radius: 14px; padding: 20px 14px; margin: 14px 0 8px; }
+  .node { text-align: center; }
+  .node .bx { display: inline-grid; place-items: center; width: 46px; height: 46px; border-radius: 13px; background: #fff; border: 1px solid #e5e8eb; margin-bottom: 6px; }
+  .node .bx svg { width: 22px; height: 22px; color: #191f28; }
+  .node b { display: block; font-size: 13.5px; color: #191f28; }
+  .node span { font-size: 12px; color: #8b95a1; }
+  .arrow { text-align: center; font-size: 11.5px; font-weight: 700; color: #03b26c; }
+  .arrow svg { display: block; margin: 4px auto 0; width: 60px; height: 12px; color: #03b26c; }
+  .blocked { display: flex; align-items: center; gap: 8px; font-size: 13.5px; color: #4e5968; border: 1px dashed #d1d6db; border-radius: 10px; padding: 10px 14px; margin-bottom: 14px; }
+  .blocked svg { width: 16px; height: 16px; color: #f04452; flex-shrink: 0; }
+
+  /* 기기 내 정보 카드 */
+  .dgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin: 10px 0 12px; }
+  .dc { display: flex; gap: 10px; align-items: flex-start; border: 1px solid #e5e8eb; border-radius: 12px; padding: 13px 14px; }
+  .dc svg { width: 18px; height: 18px; color: #3182f6; flex-shrink: 0; margin-top: 3px; }
+  .dc b { display: block; font-size: 14px; color: #191f28; }
+  .dc span { font-size: 12.5px; color: #8b95a1; line-height: 1.5; display: block; }
+
+  /* 태그 */
+  .tag { display: inline-block; font-size: 11.5px; font-weight: 700; padding: 2px 8px; border-radius: 6px; margin: 1px 3px 1px 0; }
+  .t-local { background: #e5f8ef; color: #028a54; }
+  .t-fb { background: #fff4e0; color: #b86e00; }
+  .t-tr { background: #f1ecff; color: #6b3fd4; }
+  tr.grp td { background: #f9fafb; font-size: 12px; font-weight: 700; color: #8b95a1; padding: 7px 12px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 12px; font-size: 12.5px; color: #6b7684; margin-top: 4px; }
+
+  footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid #e5e8eb; font-size: 13px; color: #8b95a1; }
+
+  @media (max-width: 560px) {
+    .wrap { padding: 40px 18px 72px; }
+    h1 { font-size: 24px; }
+    .toc ol { columns: 1; }
+    .glance, .dgrid { grid-template-columns: 1fr; }
+    .flow { grid-template-columns: 1fr; }
+    .arrow svg { transform: rotate(90deg); width: 36px; margin: 20px auto 14px; }
+    th, td { padding: 10px 8px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="app">
+      <span class="app-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg></span>
+      PNUcal
+    </div>
+    <h1>개인정보처리방침</h1>
+    <p class="date">시행일: 2026년 9월 21일</p>
+  </header>
+
+  <div class="intro">
+    <p><strong>PNUcal</strong> 및 <strong>Plato 달력</strong> 서비스(이하 “서비스”)는 「개인정보 보호법」 제30조에 따라 정보주체의 개인정보를 보호하고 이와 관련한 고충을 신속하고 원활하게 처리할 수 있도록 하기 위하여 다음과 같이 개인정보 처리방침을 수립·공개합니다.</p>
+    <div class="notice blue">
+      <div class="notice-title"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M11 18.5h2"/></svg>학업 정보는 사용자의 기기에서만 처리됩니다</div>
+      <p>성적·학점·시간표·출석기록·과제 등 학업 정보와 로그인 정보는 학교 서버에서 사용자의 기기로 직접 불러와 기기 내부에만 저장됩니다. 개발자 서버나 Firebase로 전송되지 않으며, 개발자도 열람할 수 없습니다.</p>
+      <div class="chips">
+        <span class="chip">학점 · 평점</span><span class="chip">성적표</span><span class="chip">시간표</span><span class="chip">출석기록</span><span class="chip">과제 · 마감</span><span class="chip">로그인 정보</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="glance-title">한눈에 보기</div>
+  <div class="glance">
+    <div class="g">
+      <div class="g-ic ic-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg></div>
+      <b>비밀번호 전송 없음</b>
+      <span>기기 보안 저장소에만 보관하고 학교 서버 로그인에만 사용해요.</span>
+    </div>
+    <div class="g">
+      <div class="g-ic ic-green"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.5 3.2 8.2 7.5 9.5 4.3-1.3 7.5-5 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+      <b>학업 정보는 기기에만</b>
+      <span>성적·시간표·출석은 어떤 외부 서버에도 저장되지 않아요.</span>
+    </div>
+    <div class="g">
+      <div class="g-ic ic-gray"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M9 7V4.5h6V7M6.5 7l1 13h9l1-13"/></svg></div>
+      <b>삭제 즉시 파기</b>
+      <span>앱을 지우거나 초기화하면 기기 내 정보가 모두 사라져요.</span>
+    </div>
+  </div>
+
+  <nav class="toc">
+    <div class="toc-title">목차</div>
+    <ol>
+      <li><a href="#s1">제1조 개인정보의 처리 목적</a></li>
+      <li><a href="#s2">제2조 기기 내에서만 처리되는 정보</a></li>
+      <li><a href="#s3">제3조 처리하는 개인정보의 항목</a></li>
+      <li><a href="#s4">제4조 개인정보의 처리 및 보유 기간</a></li>
+      <li><a href="#s5">제5조 개인정보의 제3자 제공 및 위탁</a></li>
+      <li><a href="#s6">제6조 개인정보의 파기</a></li>
+      <li><a href="#s7">제7조 정보주체의 권리·의무 및 행사방법</a></li>
+      <li><a href="#s8">제8조 개인정보의 안전성 확보 조치</a></li>
+      <li><a href="#s9">제9조 쿠키 사용</a></li>
+      <li><a href="#s10">제10조 개인정보 보호책임자</a></li>
+      <li><a href="#s11">제11조 개인정보 열람청구</a></li>
+      <li><a href="#s12">제12조 권익침해 구제방법</a></li>
+      <li><a href="#s13">제13조 개인정보 처리방침 변경</a></li>
+    </ol>
+  </nav>
+
+  <section id="s1">
+    <h2>제1조 (개인정보의 처리 목적)</h2>
+    <p>서비스는 다음의 목적을 위하여 개인정보를 처리합니다. 처리하고 있는 개인정보는 다음의 목적 이외의 용도로는 이용되지 않으며, 이용 목적이 변경되는 경우에는 별도의 동의를 받는 등 필요한 조치를 이행할 예정입니다.</p>
+    <h3>PNUcal</h3>
+    <ul class="items">
+      <li>학교 시스템(PLATO, 학생지원시스템 등)에 로그인하여 과제, 강의, 출석, 성적, 시간표, 학사일정 정보를 조회</li>
+      <li>학점·평점 계산, 시간표 표시, 출석 현황 확인 등 학업 관리 기능 제공 (기기 내에서 처리)</li>
+      <li>과제 마감 알림 예약 (로컬 알림)</li>
+      <li>푸시 알림 수신을 위한 Firebase Cloud Messaging(FCM) 기기 토큰 등록</li>
+      <li>앱 공지사항 전달 및 사용자 피드백 기능 제공을 위한 Firebase Firestore 사용</li>
+      <li>앱 사용성 개선을 위한 Firebase Analytics 기본 화면 조회 통계 수집 (개인 식별 불가)</li>
+      <li>iOS 단축어(Shortcuts) 자동화를 통한 백그라운드 과제 확인 및 알림 예약</li>
+    </ul>
+    <h3>Plato 달력 (Google 연동 기능 사용 시)</h3>
+    <ul class="items">
+      <li>Google Calendar API를 통한 일정 데이터 접근 및 동기화</li>
+      <li>일정 정보의 추가, 수정, 삭제 기능 제공</li>
+    </ul>
+  </section>
+
+  <section id="s2">
+    <h2>제2조 (기기 내에서만 처리되는 정보)</h2>
+    <p>PNUcal은 다음의 정보를 사용자의 기기와 학교 서버 사이의 직접 통신으로만 주고받으며, 사용자의 기기 내부 저장소에만 저장합니다. 이 정보는 개발자가 운영하는 서버, Firebase 또는 기타 외부 서버로 전송되지 않습니다.</p>
+    <div class="flow" role="img" aria-label="사용자 기기와 부산대학교 서버가 HTTPS로 직접 통신">
+      <div class="node">
+        <div class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="12" height="19" rx="3"/><path d="M11 18.5h2"/></svg></div>
+        <b>내 기기</b><span>저장 · 계산 · 표시</span>
+      </div>
+      <div class="arrow">HTTPS 직접 통신<svg viewBox="0 0 60 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 2 6l4 4M54 2l4 4-4 4M2 6h56"/></svg></div>
+      <div class="node">
+        <div class="bx"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20V10l7-5 7 5v10M9.5 20v-5h5v5"/></svg></div>
+        <b>부산대학교 서버</b><span>PLATO · 학생지원시스템</span>
+      </div>
+    </div>
+    <div class="blocked"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="m5.6 5.6 12.8 12.8"/></svg>개발자 서버 · Firebase · 기타 외부 서버로 전송되지 않음</div>
+
+    <div class="dgrid">
+      <div class="dc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg><div><b>성적 정보</b><span>학기별 성적, 취득 학점, 평점(GPA), 성적표</span></div></div>
+      <div class="dc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2.5"/><path d="M3 9.5h18M9 9.5V21M15 9.5V21"/></svg><div><b>시간표 정보</b><span>학기별 시간표, 강의실, 수강 과목</span></div></div>
+      <div class="dc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8.5 12 2.5 2.5 4.5-5"/></svg><div><b>출석기록</b><span>과목별 출석·지각·결석 현황</span></div></div>
+      <div class="dc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4" width="14" height="17" rx="2.5"/><path d="M9 3v2.5h6V3M9 11h6M9 15h4"/></svg><div><b>과제 및 학사일정</b><span>과제 목록, 마감일, 제출 여부, 학사일정</span></div></div>
+      <div class="dc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="10.5" width="16" height="10" rx="2.5"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3"/></svg><div><b>로그인 정보</b><span>학교 시스템 아이디(학번) 및 비밀번호</span></div></div>
+      <div class="dc"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></svg><div><b>앱 설정</b><span>알림 설정, 테마, 숨긴 과제 목록 등</span></div></div>
+    </div>
+    <p>학점 계산, 시간표 구성, 출석 현황 집계 등 위 정보를 이용한 모든 처리는 사용자의 기기 안에서 이루어지며, 개발자를 포함한 누구도 이를 원격으로 열람하거나 수집할 수 없습니다.</p>
+  </section>
+
+  <section id="s3">
+    <h2>제3조 (처리하는 개인정보의 항목)</h2>
+    <h3>PNUcal</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>항목</th><th>저장 위치</th></tr></thead>
+        <tbody>
+          <tr class="grp"><td colspan="2">학업 정보</td></tr>
+          <tr><td>성적, 학점, 평점(GPA), 성적표</td><td class="loc"><span class="tag t-local">기기 내부</span></td></tr>
+          <tr><td>시간표 및 수강 과목</td><td class="loc"><span class="tag t-local">기기 내부</span></td></tr>
+          <tr><td>출석기록</td><td class="loc"><span class="tag t-local">기기 내부</span></td></tr>
+          <tr><td>과제 및 학사일정 정보</td><td class="loc"><span class="tag t-local">기기 내부</span></td></tr>
+          <tr class="grp"><td colspan="2">계정 · 설정</td></tr>
+          <tr><td>학교 시스템 아이디(학번), 비밀번호</td><td class="loc"><span class="tag t-local">기기 내부</span></td></tr>
+          <tr><td>알림 설정, 테마, 숨긴 과제 목록</td><td class="loc"><span class="tag t-local">기기 내부</span></td></tr>
+          <tr><td>사용자 이름</td><td class="loc"><span class="tag t-local">기기 내부</span><span class="tag t-fb">Firebase</span></td></tr>
+          <tr><td>학번 (마스킹 처리 값 포함)</td><td class="loc"><span class="tag t-local">기기 내부</span><span class="tag t-fb">Firebase</span></td></tr>
+          <tr class="grp"><td colspan="2">서비스 운영</td></tr>
+          <tr><td>FCM 기기 토큰 (푸시 알림용)</td><td class="loc"><span class="tag t-local">기기 내부</span><span class="tag t-fb">Firebase</span></td></tr>
+          <tr><td>최초 등록 시각, 최근 접속 시각, 이용 일자</td><td class="loc"><span class="tag t-fb">Firebase</span></td></tr>
+          <tr><td>앱 이용 상태 (프리미엄 여부 등)</td><td class="loc"><span class="tag t-fb">Firebase</span></td></tr>
+          <tr><td>사용자 피드백 내용 및 개발자 답변</td><td class="loc"><span class="tag t-fb">Firebase</span></td></tr>
+          <tr><td>화면 조회 통계 (비식별)</td><td class="loc"><span class="tag t-fb">Firebase</span></td></tr>
+          <tr><td>학교 시스템 세션 쿠키</td><td class="loc"><span class="tag t-tr">통신 시에만</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="box">Firebase에는 알림 발송과 앱 운영에 필요한 최소한의 정보만 저장됩니다. <strong>성적·학점·시간표·출석기록·과제·비밀번호는 Firebase에 저장되지 않습니다.</strong></div>
+    <h3>Plato 달력</h3>
+    <ul class="items">
+      <li>필수항목: Google Calendar Data (일정 제목, 시간, 내용 등)</li>
+    </ul>
+  </section>
+
+  <section id="s4">
+    <h2>제4조 (개인정보의 처리 및 보유 기간)</h2>
+    <ol class="items">
+      <li><strong>PNUcal (기기 내 저장 데이터)</strong>: 사용자의 기기에 저장된 모든 정보(성적, 시간표, 출석기록, 과제, 로그인 정보, 알림 설정 등)는 앱 삭제 시 즉시 파기됩니다.</li>
+      <li><strong>PNUcal (Firebase 저장 데이터)</strong>: 푸시 알림 및 앱 기능 제공을 위해 Firebase Firestore에 저장된 정보(이름, 학번, 기기 토큰, 접속 기록 등)는 사용자가 앱을 삭제하거나 서비스 이용을 중단할 경우, 요청에 따라 삭제됩니다.</li>
+      <li><strong>Plato 달력</strong>: Google Calendar 데이터는 사용자가 Google 연동 기능을 종료하거나 앱을 삭제할 때까지 보유 및 이용됩니다.</li>
+    </ol>
+  </section>
+
+  <section id="s5">
+    <h2>제5조 (개인정보의 제3자 제공 및 위탁)</h2>
+    <p>서비스는 원칙적으로 정보주체의 개인정보를 제3자에게 제공하지 않습니다. 다만, 서비스 운영을 위하여 다음과 같이 외부 서비스를 이용합니다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>수탁자</th><th>위탁 업무</th></tr></thead>
+        <tbody>
+          <tr><td class="loc">Google LLC<br><span class="sub">Firebase</span></td><td>푸시 알림 발송(FCM), 공지·피드백 저장(Firestore), 비식별 화면 조회 통계(Analytics)</td></tr>
+          <tr><td class="loc">Cloudflare, Inc.<br><span class="sub">Workers</span></td><td>공지 푸시 알림 발송 중계 (기기 토큰을 전달받아 중계하며 별도로 저장하지 않음)</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p>또한 법령의 규정에 의거하거나, 수사 목적으로 법령에 정해진 절차와 방법에 따라 수사기관의 요구가 있는 경우에는 예외로 합니다.</p>
+  </section>
+
+  <section id="s6">
+    <h2>제6조 (개인정보의 파기)</h2>
+    <p>서비스는 개인정보 보유기간의 경과, 처리목적 달성 등 개인정보가 불필요하게 되었을 때에는 지체 없이 해당 개인정보를 파기합니다.</p>
+    <ol class="items">
+      <li><strong>기기 내 데이터</strong>: 사용자가 앱을 삭제하거나 로그아웃 시 스마트폰 운영체제의 정책에 따라 앱 데이터가 즉시 삭제됩니다.</li>
+      <li><strong>Firebase 데이터</strong>: 사용자의 삭제 요청 시 Firestore에 저장된 사용자 문서를 삭제합니다. 별도 요청이 없는 경우 서비스 종료 시 일괄 파기합니다.</li>
+    </ol>
+  </section>
+
+  <section id="s7">
+    <h2>제7조 (정보주체의 권리·의무 및 행사방법)</h2>
+    <ol class="items">
+      <li>정보주체는 언제든지 개인정보 열람·정정·삭제·처리정지 요구를 할 수 있습니다.</li>
+      <li>PNUcal 앱 내 ‘로그아웃’ 또는 ‘데이터 초기화’ 기능을 통해 기기에 저장된 모든 개인정보를 즉시 삭제할 수 있습니다.</li>
+      <li>Firebase에 저장된 데이터의 삭제를 원하는 경우, 개인정보 보호책임자에게 연락하여 요청할 수 있습니다.</li>
+      <li>앱을 삭제하는 즉시 사용자의 기기에서 모든 로컬 개인정보가 파기됩니다.</li>
+    </ol>
+  </section>
+
+  <section id="s8">
+    <h2>제8조 (개인정보의 안전성 확보 조치)</h2>
+    <ol class="items">
+      <li><strong>기기 내 처리</strong>: 성적·시간표·출석기록 등 학업 정보는 외부 서버를 거치지 않고 기기 안에서만 저장·처리합니다.</li>
+      <li><strong>비밀번호 보안 저장</strong>: 비밀번호는 iOS 키체인(Keychain) 및 Android 키스토어(Keystore) 기반의 보안 저장소에 보관됩니다.</li>
+      <li><strong>기기 내 저장 보안</strong>: 사용자의 정보는 iOS/Android 앱 샌드박스 내 저장되어 다른 앱에서 접근할 수 없습니다.</li>
+      <li><strong>통신 암호화</strong>: 학교 서버 및 Firebase와의 모든 통신은 HTTPS(TLS) 암호화를 통해 이루어집니다.</li>
+      <li><strong>개인정보 마스킹</strong>: Firebase에 저장되는 이름과 학번은 마스킹 처리된 값을 함께 저장하여 관리 화면에서의 노출을 최소화합니다.</li>
+      <li><strong>접근 권한 관리</strong>: Firebase Firestore 보안 규칙을 통해 비인가 접근을 차단하고 있습니다.</li>
+      <li><strong>내부 관리계획의 수립 및 시행</strong>: 개인정보의 안전한 처리를 위하여 내부관리계획을 수립하고 시행하고 있습니다.</li>
+    </ol>
+  </section>
+
+  <section id="s9">
+    <h2>제9조 (쿠키 사용)</h2>
+    <p>본 서비스는 웹사이트 쿠키(Cookie)를 사용하지 않습니다. 단, 학교 시스템과의 세션 유지를 위해 앱 내부에서 임시 세션 값을 활용하며, 이는 학교 서버와의 통신에만 사용되고 외부로 전송되지 않습니다.</p>
+  </section>
+
+  <section id="s10">
+    <h2>제10조 (개인정보 보호책임자)</h2>
+    <p>서비스는 개인정보 처리에 관한 업무를 총괄해서 책임지고, 개인정보 처리와 관련한 정보주체의 불만처리 및 피해구제 등을 위하여 아래와 같이 개인정보 보호책임자를 지정하고 있습니다.</p>
+    <dl class="contact">
+      <dt>성명</dt><dd>이준서</dd>
+      <dt>이메일</dt><dd><a href="mailto:dlwd9888@pusan.ac.kr">dlwd9888@pusan.ac.kr</a></dd>
+    </dl>
+  </section>
+
+  <section id="s11">
+    <h2>제11조 (개인정보 열람청구)</h2>
+    <p>정보주체는 「개인정보 보호법」 제35조에 따른 개인정보의 열람 청구를 아래의 담당자에게 할 수 있습니다.</p>
+    <dl class="contact">
+      <dt>담당자</dt><dd>이준서</dd>
+      <dt>이메일</dt><dd><a href="mailto:dlwd9888@pusan.ac.kr">dlwd9888@pusan.ac.kr</a></dd>
+    </dl>
+  </section>
+
+  <section id="s12">
+    <h2>제12조 (권익침해 구제방법)</h2>
+    <p>정보주체는 개인정보침해로 인한 구제를 받기 위하여 아래 기관에 분쟁해결이나 상담 등을 신청할 수 있습니다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>기관명</th><th>연락처</th></tr></thead>
+        <tbody>
+          <tr><td>개인정보분쟁조정위원회</td><td>1833-6972 / <a href="https://www.kopico.go.kr">www.kopico.go.kr</a></td></tr>
+          <tr><td>개인정보침해신고센터</td><td>118 / <a href="https://privacy.kisa.or.kr">privacy.kisa.or.kr</a></td></tr>
+          <tr><td>대검찰청</td><td>1301 / <a href="https://www.spo.go.kr">www.spo.go.kr</a></td></tr>
+          <tr><td>경찰청</td><td>182 / <a href="https://cyberbureau.police.go.kr">cyberbureau.police.go.kr</a></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="s13">
+    <h2>제13조 (개인정보 처리방침 변경)</h2>
+    <p>이 개인정보처리방침은 <strong>2026년 9월 21일</strong>부터 적용됩니다.</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>시행일</th><th>구분</th></tr></thead>
+        <tbody>
+          <tr><td>2026년 9월 21일</td><td>현행</td></tr>
+          <tr><td>2026년 9월 5일</td><td>개정</td></tr>
+          <tr><td>2026년 4월 14일</td><td>개정</td></tr>
+          <tr><td>2025년 4월 1일</td><td>최초 시행</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <footer>&copy; 2025 PNUcal. All rights reserved.</footer>
+</div>
+</body>
+</html>
